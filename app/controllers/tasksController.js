@@ -1,8 +1,8 @@
 const Task = require('../models/task')
- const tasksController = {}
+const tasksController = {}
  
-// get all categories
-tasksController.list = (req, res) => {
+ // get all categories
+ tasksController.list = (req, res) => {
     Task.find({user : req.user._id})                            
         .then((task) =>{
             res.json(task)
@@ -10,10 +10,10 @@ tasksController.list = (req, res) => {
         .catch((err) => {
             res.json(err)
         })  
-}
+ }
 
-tasksController.create = (req,res)=>{
-    //console.log('entered work-life post method')
+
+ tasksController.create = (req,res)=>{
     const body = req.body
     const task= new Task(body)
     task.user = req.user._id
@@ -29,11 +29,9 @@ tasksController.create = (req,res)=>{
  }
 
     
-
  tasksController.update = (req,res)=>{
      const id = req.params.id
      const body = req.body
-    //  const category = new Category(id,body, {new : true, runValidators : true})
      Task.findOneAndUpdate({_id:id, user : req.user._id},body, {new : true, runValidators : true})
      .then((task)=>{
          console.log('after updating in db response is',task)
@@ -65,17 +63,5 @@ tasksController.create = (req,res)=>{
      })
  }
 
-
-//  tasksController.completed = (req,res)=>{
-//     const id = req.params.id
-//     const body = req.body
-//      Task.findOneAndUpdate({_id:id, user : req.user._id},body, {new : true, runValidators : true})
-//      .then((tasks)=>{
-//          res.json(tasks)
-//      })
-//      .catch(err=>{
-//          res.json(err)
-//      })
-//  }
 
  module.exports = tasksController

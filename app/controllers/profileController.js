@@ -1,5 +1,5 @@
 const Profile = require('../models/profile')
-  const profileController = {}
+const profileController = {}
 
  profileController.alllist = (req, res) => {
     Profile.find({organization : req.profile.organization})                            
@@ -9,10 +9,11 @@ const Profile = require('../models/profile')
         .catch((err) => {
             res.json(err)
         })  
-}
+ }
  
-// get particular profile
-profileController.list = (req, res) => {
+
+ // get particular profile
+ profileController.list = (req, res) => {
     Profile.find({user : req.user._id})                            
         .then((profile) =>{
             res.json(profile)
@@ -20,11 +21,11 @@ profileController.list = (req, res) => {
         .catch((err) => {
             res.json(err)
         })  
-}
+ }
 
-profileController.create = (req,res)=>{
-   // console.log('entered profile controllerpost method')
-    const body = req.body
+
+ profileController.create = (req,res)=>{
+     const body = req.body
     const profile= new Profile(body)
     profile.user = req.user._id
     profile.save( )
@@ -36,8 +37,8 @@ profileController.create = (req,res)=>{
     })
  }
 
+
  profileController.show= (req,res)=>{
-     //console.log('entered profileController show')
      const id = req.params.id
      Profile.find ({_id:id, user : req.user._id})
      .then((profile)=>{
@@ -49,7 +50,7 @@ profileController.create = (req,res)=>{
          }
      })
      .catch((err)=>{
-                 res.json(err)
+           res.json(err)
 
      })
  }
@@ -58,11 +59,9 @@ profileController.create = (req,res)=>{
  profileController.update = (req,res)=>{
      const id = req.params.id
      const body = req.body
-    // console.log('inside profileController update')
-      Profile.findOneAndUpdate({_id:id, user : req.user._id},body, {new : true, runValidators : true})
+       Profile.findOneAndUpdate({_id:id, user : req.user._id},body, {new : true, runValidators : true})
      .then((profile)=>{
-         //console.log('after updating in db response is',profile)
-         if(profile){
+          if(profile){
             res.json([profile])
          } else {
              res.json({})
@@ -77,7 +76,6 @@ profileController.create = (req,res)=>{
 
  profileController.destroy = (req,res)=>{
      const id = req.params.id
-     //console.log('entered profileController destroy')
      Profile.findOneAndDelete({_id:id})
      .then((profile)=>{
          if(profile){
@@ -92,5 +90,4 @@ profileController.create = (req,res)=>{
  }
 
 
- 
  module.exports = profileController

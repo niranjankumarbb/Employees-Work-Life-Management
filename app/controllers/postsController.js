@@ -1,20 +1,19 @@
-const Post = require('../models/post')
-  const postsController = {}
+   const Post = require('../models/post')
+   const postsController = {}
  
-// get all posts
-postsController.list = (req, res) => {
-    //console.log('entered postcontroller list')
+    // get all posts
+    postsController.list = (req, res) => {
     Post.find({organization : req.profile.organization})                            
-        .then((posts) =>{
-            res.json(posts)
-        })
-        .catch((err) => {
-            res.json(err)
-        })  
-}
+    .then((posts) =>{
+        res.json(posts)
+    })
+    .catch((err) => {
+        res.json(err)
+    })  
+    }
+       
 
-postsController.create = (req,res)=>{
-    //console.log('entered post controller -post method')
+    postsController.create = (req,res)=>{
     const body = req.body
     const post= new Post()
     post.user = req.user._id
@@ -29,69 +28,63 @@ postsController.create = (req,res)=>{
     .catch((err)=>{
         res.json(err)
     })
- }
-
- postsController.show= (req,res)=>{
-     //console.log('entered postscontroller show')
-     const id = req.params.id
-     Post.find ({_id:id, organization : req.profile.organization})
-     .then((post)=>{
-         if(post){
-           res.json(post)
-         }else {
-             res.json({})
-         }
-     })
-     .catch((err)=>{
-                 res.json(err)
-
-     })
- }
+    }
 
 
- 
+    postsController.show= (req,res)=>{
+    const id = req.params.id
+    Post.find ({_id:id, organization : req.profile.organization})
+    .then((post)=>{
+        if(post){
+        res.json(post)
+        }else {
+            res.json({})
+        }
+    })
+    .catch((err)=>{
+                res.json(err)
+
+    })
+    }
 
 
- postsController.destroy = (req,res)=>{
-     //console.log('entered postcontroller delete')
-     const id = req.params.id
-     Post.findOneAndDelete({_id:id, user : req.user._id})
-     .then((post)=>{
-         if(post){
-             res.json(post)
-         } else {
-             res.json({})
-         }
-     })
-     .catch((err)=>{
-         res.json(err)
-     })
- }
+    postsController.destroy = (req,res)=>{
+    const id = req.params.id
+    Post.findOneAndDelete({_id:id, user : req.user._id})
+    .then((post)=>{
+        if(post){
+            res.json(post)
+        } else {
+            res.json({})
+        }
+    })
+    .catch((err)=>{
+        res.json(err)
+    })
+    }
 
 
- postsController.likes = (req,res)=>{
- 
-         const id=req.params.id
-         Post.findById(id)
-         .then(post=>{
-             if(post.likes.filter(like => like.user.toString() === req.user.id).length >0){
-                 return res.status(400).json({alreadyliked:"User already liked this post"});
-             }
-           
-             // Add user id to likes array
-            post.likes.unshift({user:req.user.id});
-             post.save()
-             .then(post =>{
-                  res.json(post)});
-         })
-         .catch( err=>{
-             res.json(err)
-         });
+    postsController.likes = (req,res)=>{
+    const id=req.params.id
+    Post.findById(id)
+    .then(post=>{
+        if(post.likes.filter(like => like.user.toString() === req.user.id).length >0){
+            return res.status(400).json({alreadyliked:"User already liked this post"});
+        }
+    
+        // Add user id to likes array
+    post.likes.unshift({user:req.user.id});
+        post.save()
+        .then(post =>{
+            res.json(post)});
+    })
+    .catch( err=>{
+        res.json(err)
+    });
+    }
 
-}
 
-postsController.unlikes = (req,res)=>{
- 
+    postsController.unlikes = (req,res)=>{
     const id=req.params.id
     Post.findById(id)
     .then(post=>{
@@ -108,37 +101,34 @@ postsController.unlikes = (req,res)=>{
     .catch( err=>{
         res.json(err)
     });
+    }
 
-}
 
+    postsController.removeLikes = (req,res)=>{
+    Post.findById(req.params.id)
+    .then(post=>{
+        if(post.likes.filter(like => like.user.toString() === req.user.id).length === 0){
+            return res.status(400).json({notliked:"you have not liked this post"});
+        }
+        
+        // Remove user id to likes array
+        const removeIndex=post.likes
+        .map(item=>item.user.toString())
+        .indexOf(req.user._id);
+        //splice out of array
+        post.likes.splice(removeIndex,1);
 
-postsController.removeLikes = (req,res)=>{
-    //console.log('entered postsController.unlike')
-         Post.findById(req.params.id)
-        .then(post=>{
-            if(post.likes.filter(like => like.user.toString() === req.user.id).length === 0){
-                return res.status(400).json({notliked:"you have not liked this post"});
-            }
-           
-            // Remove user id to likes array
-            const removeIndex=post.likes
-            .map(item=>item.user.toString())
-            .indexOf(req.user._id);
-            //splice out of array
-            post.likes.splice(removeIndex,1);
-
-            post.save()
-            .then(post => res.json(post));
-        })
-        .catch( err=>{
-            res.json(err)
-        });     
-      }
+        post.save()
+        .then(post => res.json(post));
+    })
+    .catch( err=>{
+        res.json(err)
+    });     
+    }
 
  
    postsController.comment= (req,res)=>{
-    //console.log('postsController.comment req.body value', req.body)
-    const id=req.params.id
+   const id=req.params.id
     Post.findById( id)
     .then(post =>{
         const newComment={
@@ -155,16 +145,12 @@ postsController.removeLikes = (req,res)=>{
     })
     .catch(err => {
         res.json(err)
-    }) 
+    })   
+    } 
 
 
-} 
-
-
-postsController.destroyComment= (req,res)=>{
-   // console.log('postsController.destroyComment req.params.id value', req.params.id)
-   // console.log('postsController.destroyComment req.params.commentid value', req.params.commentid)
-    const id=req.params.id
+   postsController.destroyComment= (req,res)=>{
+   const id=req.params.id
     const commentId= req.body.commentId
     Post.findById(id)
     .then(post =>{
@@ -189,8 +175,6 @@ postsController.destroyComment= (req,res)=>{
     .catch(err => {
         res.json(err)
     })
-
-
-}
+    }
   
  module.exports = postsController

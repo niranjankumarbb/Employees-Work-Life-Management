@@ -3,16 +3,14 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const usersController = {}
 
-usersController.register = (req,res)=>{
-    console.log('entered usersController register')
+ usersController.register = (req,res)=>{
     const body = req.body
     const user = new User(body)
     bcrypt.genSalt()
     .then(salt=>{
         console.log('salt',salt)
        bcrypt.hash(user.password,salt)
-       // console.log('hash value generated')
-         .then((encrypted)=>{
+          .then((encrypted)=>{
              user.password = encrypted
              console.log('encrypted password', user.password)
              user.save()
@@ -32,7 +30,8 @@ usersController.register = (req,res)=>{
     })
  }
 
-usersController.login = function(req,res){
+
+ usersController.login = function(req,res){
     const body = req.body
     const secretKey = 'dct123'
     User.findOne({email : body.email })
@@ -71,47 +70,33 @@ usersController.login = function(req,res){
     .catch((err)=>{ 
         res.json(err)
     })
+ }
 
-}
 
-usersController.logout = (req,res)=>{
+ usersController.logout = (req,res)=>{
     res.json('deleted')
-
-        //  User.findOneAndDelete({_id: req.user._id})
-        // .then((user)=>{
-        //     console.log('deleted user details', user)
-        //     if(user){
-        //         res.json(user)
-        //     } else {
-        //         res.json({})
-        //     }
-        // })
-        // .catch((err)=>{
-        //     res.json(err)
-        // })
-    }
-
-    usersController.removeUser = (req,res)=>{
-        const id = req.params.id
-        console.log('entered userController removeUser')
-        User.findByIdAndDelete(id)
-        .then((user)=>{
-            if(user){
-                res.json(user)
-            } else {
-                res.json({})
-            }
-        })
-        .catch((err)=>{
-            res.json(err)
-        })
-    }
+ }
 
 
-usersController.account = (req,res)=>{
-    //  const user = req.user
-     res.json(req.user)
-}
+ usersController.removeUser = (req,res)=>{
+    const id = req.params.id
+     User.findByIdAndDelete(id)
+    .then((user)=>{
+        if(user){
+            res.json(user)
+        } else {
+            res.json({})
+        }
+    })
+    .catch((err)=>{
+        res.json(err)
+    })
+ }
 
 
-module.exports = usersController
+ usersController.account = (req,res)=>{
+      res.json(req.user)
+ }
+
+
+ module.exports = usersController
