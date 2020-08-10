@@ -4,16 +4,14 @@ import spinner from './spinner.svg'
 import { startGetAllProfiles, startRemoveProfile} from '../actions/profileAction'
 import { startRemoveUser} from '../actions/userAction'
 
-class Employees  extends React.Component {
-     
+class Employees  extends React.Component {     
 
     componentDidMount(){
         this.props.dispatch(startGetAllProfiles())
-
     }
 
-     handleDelete= (profileId, userId)=>{
-        this.props.dispatch(startRemoveProfile(profileId))
+    handleDelete= (profileId, userId)=>{
+       this.props.dispatch(startRemoveProfile(profileId))
        this.props.dispatch(startRemoveUser(userId))
      }
 
@@ -26,7 +24,7 @@ class Employees  extends React.Component {
             <br/>
              <h1>Employees details</h1>
              <br/>
-                      { this.props.allProfiles.length>0 && Object.keys(this.props.user).length>0? (
+              { this.props.allProfiles.length>0 && Object.keys(this.props.user).length>0? (
                 <div>
                     <table border='1' className="table table-hover">
                         <thead  >
@@ -46,14 +44,12 @@ class Employees  extends React.Component {
                                 )}
                             </tr>
                         </thead>
-                     <tbody>
-                         
+                     <tbody>                         
                          {this.props.allProfiles.map((profile, i)=>{
                           return (
                             <React.Fragment key={i}>
                              <tr key={i}>
-                                {/* <td>{i+1}</td> */}
-                                <th >{i+1}</th>
+                                 <th >{i+1}</th>
                                 <td>{
                                      <img
                                      className="rounded mx-auto d-block z-depth-1 img-thumbnail"
@@ -90,20 +86,15 @@ class Employees  extends React.Component {
                         }
                         
                      </tbody>
-                 </table> 
-                
-                    
- 
-                <br/><br/><br/>  
-
-                 
+                 </table>             
+              <br/><br/><br/>                  
                 </div>
                  ):(
                      <div align='center'>
                      <h2>Enter employees details</h2>
                     <img src={spinner} alt="spinner" style={{width:'400px',margin:'auto',display:'block'}} />
                      </div>
-                    )
+                 )
                }
                </div>
                </div>
@@ -111,14 +102,12 @@ class Employees  extends React.Component {
         )
     }
 }
-
-
-
-const mapStateToProps= (state)=>{
-    
+ 
+const mapStateToProps= (state)=>{    
     return{
         allProfiles: state.allProfiles,
         user: state.user
      }
 }
+
 export default connect(mapStateToProps)(Employees)

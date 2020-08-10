@@ -17,28 +17,26 @@ class Register extends React.Component{
       this.setState({
           [e.target.name] : e.target.value
       })
-
     }
 
     handleRole =(data)=> {
         this.setState({
              role : data
         })
-       }
+    }
 
     handleSubmit = (e)=>{
         e.preventDefault()
         const formData= {
-                  username: this.state.username,
-                     email: this.state.email,
-                  password: this.state.password ,
-                    role  : this.state.role   
+            username: this.state.username,
+                email: this.state.email,
+            password: this.state.password ,
+            role  : this.state.role   
         }
         const redirect = ()=> {
             this.props.history.push('/login')
         }
         this.props.dispatch(startRegisterUser(formData, redirect))
-
     }
 
     render(){
@@ -64,36 +62,25 @@ class Register extends React.Component{
                 <label htmlFor="employee"   className="mr-3">Employee</label>
                 </div>
 
-
                 <div className="form-group">
                 <label htmlFor='username'>username</label>
                 <input typr='text' id='username' name='username' value={this.state.username}  onChange={this.handleChange} className="form-control"/>
                  
-       
-                 </div>
+                </div>
                  <label htmlFor='email'>email</label>
                 <input typr='text' id='email' name='email' value={this.state.email}  onChange={this.handleChange} className="form-control"/>
-               
-                 <div className="form-group">
-                        
+                <div className="form-group">                        
                  </div>
 
-                 <div className="form-group">
-                 <label htmlFor='password'>password</label>
+                <div className="form-group">
+                <label htmlFor='password'>password</label>
                 <input type='password' id='password' name='password' value={this.state.password}  onChange={this.handleChange} className="form-control"/>
-               
-       
                 </div>
 
                 <div className="form-group">
-                <input type='submit' value='submit' className="form-control"/> 
-      
-                </div>
-               
-               
-
-                
-                </form> 
+                <input type='submit' value='submit' className="form-control"/>       
+                </div>      
+              </form> 
             </div>
             </div>
          </div>  

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-// const bcrypt = require('bcryptjs')
-
+ 
 const Schema = mongoose.Schema
 const userSchema = new Schema({
      username : {
@@ -35,17 +34,11 @@ const userSchema = new Schema({
         type: String,
         required : true
      },
-
      loginCount  :{
         type : Number,
         default: 0
-        
-    }
+     }
 })
 
-
 const User = mongoose.model('User', userSchema)
-
-// userSchema.pre('save', )
-
 module.exports = User 

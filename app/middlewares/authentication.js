@@ -21,8 +21,6 @@ const authenticateUser= (req,res,next)=> {
             res.json(e.message)
         }
     }
-   
-
 }
 
 module.exports = {

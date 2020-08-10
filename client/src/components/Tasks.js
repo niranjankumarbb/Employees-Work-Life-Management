@@ -10,12 +10,10 @@ class Tasks extends React.Component{
       date   : undefined,
   target     : '',
  completed   : false,
-   }
-
+ }
 
    componentDidMount(){
-       console.log('entered componentDidMount')
-      // if(this.props.tasks.length == 0){
+       // if(this.props.tasks.length == 0){
            this.props.dispatch(startGetTasks())
       //}
    }
@@ -23,10 +21,8 @@ class Tasks extends React.Component{
    handleChange = (e)=>{ 
        this.setState({
         [e.target.name] : e.target.value
-
        })
    }
-
 
    handleComplete=(e)=>{
        this.setState(prevState=>{
@@ -35,7 +31,6 @@ class Tasks extends React.Component{
            }
        })
    }
-
 
    handleSubmit = (e)=>{
        e.preventDefault()
@@ -47,9 +42,7 @@ class Tasks extends React.Component{
          target     : this.state.target,
         completed   : this.state.completed,
        }
-
        this.props.dispatch(startPostTasks(formData))
-
    }
 
    render(){
@@ -72,7 +65,6 @@ class Tasks extends React.Component{
                         <br/><br/>
                         <h2>Work related activities</h2>
                         </div>
-
                          }
 
                         {(this.props.location.state.detail=='weekend')&&
@@ -81,38 +73,24 @@ class Tasks extends React.Component{
                         <br/><br/>
                         <h2>Weekend related activities</h2>
                         </div>
-
                          }
 
                         <form onSubmit ={this.handleSubmit}>
                          <br/>
                         <div className="form-group">
                             <input type='text' name='activities' value={this.state.activities} className='form-control' />
-                            {/* <select  name='activities' value= {this.state.activities}   onChange= {this.handleChange} >  
-                            <select name='activities' value= {this.state.activities} onChange= {this.handleChange} >
-                            <option value=''>--Select--</option>
-                                {this.props.customers.map((customer,i)=>{
-                                return (
-                                <option key={i} value={customer.name} >{customer.name}</option>
-                                    )
-                                })}
-                            </select>    */}
                             <br/> <br/>
-                            </div>
-
+                        </div>
 
                         <div className="form-group">
                         <input type='text' name='title' value={this.state.title} onChange={this.handleChange} placeholder='title' className='form-control'  />
                         <br/> 
-
                         </div>
 
                         <div className="form-group">
                         <textarea  name='description' value = {this.state.description} onChange={this.handleChange} placeholder='description' className='form-control' />
                         <br/>
-
                         </div>
-
 
                         <div className="form-group">
                         <label htmlFor='date'>Date</label>
@@ -120,18 +98,14 @@ class Tasks extends React.Component{
                         <br/>  
                         </div>
 
-
                         <div className="form-group">
                         <label htmlFor='target'>Target</label>
                         <input type='target' id='target'  name='target' value={this.state.target} onChange={this.handleChange} placeholder='deadline' className='form-control' />
                         <br/>  
                         </div>
 
-
-
                         <div className="form-group">
                         <label htmlFor='completed'>Completed    </label>
-                        {/* <button onClick={this.handleClick}>click here</button> */}
                         <input type='checkbox' id='completed' name='completed' value={this.state.completed} onChange={this.handleComplete} />
                         <br/>  
                         </div>
@@ -139,20 +113,12 @@ class Tasks extends React.Component{
                         <div className="form-group">
                             <input type='submit' value='Submit' class="btn btn-info"  className='form-control'/>
                             </div>
-                        </form>
-                  
+                        </form>                  
                         </div>
-                 </div>
-            
+                 </div>            
            </div>
        )
    }
-
 }
-
-// const mapStateToProps= (state)=>{
-//     return {
-//         tasks : state.tasks
-//     }
-// }
+ 
 export default connect()(Tasks)

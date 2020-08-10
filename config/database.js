@@ -13,6 +13,5 @@ const configuredb = () => {
             console.log(err)
         })
 }   
-
-module.exports = configuredb  // export default
-//module.export = {configureDB} // export
+module.exports = configuredb  
+ 

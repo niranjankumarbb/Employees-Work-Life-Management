@@ -1,8 +1,5 @@
 import React from 'react'
-// import '../style.css'
-//import{connect} from 'react-redux'
-
-
+ 
 class  Tasks extends React.Component {
     constructor(){
         super()
@@ -18,8 +15,7 @@ class  Tasks extends React.Component {
             pathname:'/tasks',
             state: {detail: 'personal_life'}
         })
-       })
-        
+       })        
     }
 
     handleClick2=()=>{
@@ -29,7 +25,7 @@ class  Tasks extends React.Component {
                 pathname:'/tasks',
                 state: {detail: 'work'}
             })
-           })
+         })
      }
 
      handleClick3=()=>{
@@ -39,21 +35,19 @@ class  Tasks extends React.Component {
                 pathname:'/tasks',
                 state: {detail: 'weekend'}
             })
-           })
+        })
      }
 
     render(){
         return (
             <div className='activities1' >
-                 {/* <h1>Enter all your activities details</h1> */}
-                <br/><br/>
+                 <br/><br/>
                  <img src='/images/activities.jpg' alt=''/>
                  <br/><br/><br/><br/><br/>
                  <button onClick={this.handleClick1} class="btn btn-info">Personal life</button>
                  <button onClick={this.handleClick2} class="btn btn-info">Work</button>
                  <button onClick={this.handleClick3} class="btn btn-info">Weekend</button>
-             </div>
-            
+             </div>            
         )
     }
 }

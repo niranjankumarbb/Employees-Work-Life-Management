@@ -1,23 +1,22 @@
 import axios from 'axios'
 import {startGetAllProfiles} from './profileAction'
 
-export const startRegisterUser= (formData,redirect)=>{
-   return (dispatch)=>{
-       console.log('entered startRegisterUser')
-     axios.post('/users/register', formData )
-        .then((response)=>{
-            console.log(response.data)
-             if(response.data._id){
-                  redirect()
-             }else {
-                 alert('Registration failed')
-             }
-        })
-        .catch((err)=>{
+    export const startRegisterUser= (formData,redirect)=>{
+    return (dispatch)=>{
+        axios.post('/users/register', formData )
+            .then((response)=>{
+                console.log(response.data)
+                if(response.data._id){
+                    redirect()
+                }else {
+                    alert('Registration failed')
+                }
+            })
+            .catch((err)=>{
             console.log(err)
-        })
-     } 
-   }
+            })
+        } 
+    }
 
    export const startLogout= ()=>{
        return (dispatch)=>{
@@ -46,21 +45,18 @@ export const startRegisterUser= (formData,redirect)=>{
               console.log('startLoginUser response.data',response.data)
               if(response.data.token){
                 localStorage.setItem('tokenWorkLife', response.data.token)
-                // localStorage.setItem('profileEmail',)
                 dispatch(startGetAllProfiles())
                 dispatch(startGetUser())
                 redirect()
-
               }else {
                   alert('Login failed')
-              }
-                          
+              }                          
             })
             .catch((err)=>{
                 console.log(err)
             })
        }
-   }
+    }
 
    export const startGetUser = ()=>{
       return (dispatch)=>{
@@ -72,20 +68,13 @@ export const startRegisterUser= (formData,redirect)=>{
         .then((response)=>{
             console.log(response.data)
             dispatch(setUser(response.data))
-            // if(response.data._id){
-            //   //  alert('Successfully received user data')
-            //     dispatch(setUser(response.data))
-            // }else {
-            //     alert(response.data.error)
-            // }
+             
         })
         .catch((err)=>{
             console.log(err)
         })
-       }
-            
+       }            
    }
-
 
    export const startRemoveUser = (id)=>{
     return (dispatch)=>{
@@ -101,16 +90,9 @@ export const startRegisterUser= (formData,redirect)=>{
       .catch((err)=>{
           console.log(err)
       })
-     }
-          
- }
-
-//    export const startLogout = ()=>{
-//        return(dispatch)=>{
-
-//        }
-//    }
-
+     }          
+   }
+ 
    export const setUser = (user)=>{
           return {type: 'SET_USER', payload: user}
    }

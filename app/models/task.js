@@ -1,7 +1,4 @@
 const mongoose = require('mongoose')
-
-console.log('mongoose content', mongoose)
-
 const Schema = mongoose.Schema
 const taskSchema = new Schema({
     activities : {
@@ -11,8 +8,7 @@ const taskSchema = new Schema({
     },
     title : {
         type : String,
-  //   minlength : 3,
-      minlength : [3,'title should be more than 3 characters'],
+        minlength : [3,'title should be more than 3 characters'],
         required : true
     },
     description : {
@@ -44,14 +40,8 @@ const taskSchema = new Schema({
         required : true
     }
 })
-
-
-//console.log('entered notes model')
  
-//console.log('taskSchema console',taskSchema)
-
 const Task = mongoose.model('Task', taskSchema)
-//console.log('Task model function()',Task())
 module.exports = Task
 
-//console.log('task.js module exports', module.exports)
+ 

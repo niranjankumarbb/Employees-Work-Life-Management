@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-//import addCustomer from '../actions/customerAction'
-import spinner from './spinner.svg'
+ import spinner from './spinner.svg'
 import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
  
 class Profile extends React.Component{
@@ -24,43 +23,29 @@ class Profile extends React.Component{
 
     componentDidMount(){
         console.log('entered profile componentDidMount')
-      //  const id=sessionStorage.getItem('workLifeProfileId')
-        this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
+         this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
     }
 
     handleChange= (e)=>{
         this.setState({
             [e.target.name] : e.target.value
-
         })
     }
-
-    // handleEdit=(id)=>{
-
-    // }
-
-
+ 
     handleDelete=()=>{
         const confirmed= window.confirm('Are you sure?')
-        //confirmed? 'yes': 'no'
-        if(confirmed){
-            console.log('inside confirmed')
+         if(confirmed){
             const id=localStorage.getItem('workLifeProfileId')
             const redirect = ()=>{
-                console.log('redirect function entered')
-                return  this.props.history.push('/')
+              return  this.props.history.push('/')
             }
             this.props.dispatch(startRemoveProfile(id,redirect))
        }
     }
 
-
-
     handleSubmit = (e)=>{
-        console.log('Profile handlesubmit entered')
-        e.preventDefault()
-        
-        const formData ={
+         e.preventDefault()        
+         const formData ={
             fullname : this.state.fullname,
             avatar:this.state.photo,
             email : this.state.email,
@@ -70,40 +55,28 @@ class Profile extends React.Component{
             qualification:this.state.qualification,
             organization:this.state.organization,
             experience:this.state.experience,
-            skills:this.state.skills
-          
-        }
+            skills:this.state.skills          
+         }
          const redirect = ()=>{
             console.log('redirect function entered')
             return  this.props.history.push('/')
-        }
-
-
+         }
         this.props.dispatch(startPostProfile(formData))
- 
-
     }
 
 
     render(){
-
         console.log('AddProfile state values ',this.state)
          return(
             <div  className='profile'>
                 {this.props.profile ?(
                 <div>
-                 <img src='/images/profile.jpeg' alt=''/>
-
-                <h1> Add Profile </h1> 
-                {/* <button onClick={()=>{
-                    this.handleEdit(this.props.profile._id)}}>Edit</button> */}
-               
+                <img src='/images/profile.jpeg' alt=''/>
+                <h1> Add Profile </h1>                 
                 <div className="row">
                 <div className="col-md-6 offset-md-3">
-
                 <button onClick={()=>{
                     this.handleDelete()}} class="btn btn-danger">Delete</button>
-
                 <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                    <label htmlFor='fullname'> Full Name </label> 
@@ -118,7 +91,6 @@ class Profile extends React.Component{
                     <input type='text' id='photo'  name='photo'  value={this.state.photo} onChange={this.handleChange} placeholder='Enter your photo path' className="form-control"/>
                     <br/>  
                     </div>
-
 
                     <div className="form-group">
                     <label htmlFor='email'> Email </label> 
@@ -140,7 +112,6 @@ class Profile extends React.Component{
                     <input type='text' id='gender'  name='gender'  value={this.state.gender} onChange={this.handleChange} className="form-control"/>
                     <br/>  
                     </div>
-
                     
                     <div className="form-group">
                     <label htmlFor='mobile'> Mobile </label> 
@@ -185,12 +156,11 @@ class Profile extends React.Component{
                 </form>
                 </div>
 
-                 </div>
-                 </div>
+                </div>
+                </div>
                 ):(
-                    <img src={spinner} alt="spinner" style={{width:'100px',margin:'auto',display:'block'}} />
-                )}
-               
+                  <img src={spinner} alt="spinner" style={{width:'100px',margin:'auto',display:'block'}} />
+                )}               
           </div>
         )
     }
@@ -203,6 +173,4 @@ const mapStateToProps= (state)=>{
 
     }
 }
-
-
 export default connect( mapStateToProps)(Profile)

@@ -20,20 +20,14 @@ store.subscribe(()=>{
 if(localStorage.getItem('tokenWorkLife')){
     store.dispatch(startGetUser())
     store.dispatch(startGetAllProfiles())
-   // store.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
     store.dispatch(startGetTasks())
     store.dispatch(startGetPosts())
-
 }
-
-//store.dispatch(startGetTasks())
-
+ 
 const ele = (
     <Provider store={store}>
         <App/>
-    </Provider>
-     
-)
-
+    </Provider>     
+) 
 
 ReactDOM.render(ele, document.getElementById('root'))

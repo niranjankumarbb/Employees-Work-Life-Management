@@ -2,7 +2,6 @@ const mongoose=require('mongoose');
 const Schema = mongoose.Schema;
 
 // create schema
-
 const PostSchema=new Schema({
     user:{
         type: Schema.Types.ObjectId,
@@ -68,5 +67,5 @@ const PostSchema=new Schema({
 });
 
 const Post=mongoose.model('post', PostSchema);
-module.exports=Post // profiles is db name
+module.exports=Post  
 

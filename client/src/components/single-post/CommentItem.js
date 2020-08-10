@@ -1,6 +1,5 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
 import { startDeleteComment } from '../../actions/postsAction';
 
 class CommentItem extends React.Component {
@@ -14,7 +13,6 @@ class CommentItem extends React.Component {
 
   render() {
     const { comment, postId, user } = this.props;
-
     return (
       <div className="card card-body mb-3">
         <div className="row">
@@ -46,14 +44,7 @@ class CommentItem extends React.Component {
     );
   }
 }
-
-// CommentItem.propTypes = {
-//   deleteComment: PropTypes.func.isRequired,
-//   comment: PropTypes.object.isRequired,
-//   postId: PropTypes.string.isRequired,
-//   auth: PropTypes.object.isRequired
-// };
-
+ 
 const mapStateToProps = state => ({
   user: state.user,
   profile: state.profile

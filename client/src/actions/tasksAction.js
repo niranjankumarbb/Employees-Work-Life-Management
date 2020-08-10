@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 export const startPostTasks = (formData)=>{
-    console.log('TasksAction entered startPostTasks')
-  return (dispatch)=>{
+   return (dispatch)=>{
       axios.post('/tasks', formData, {
         headers : {
             'Authorization': localStorage.getItem('tokenWorkLife')
@@ -10,25 +9,17 @@ export const startPostTasks = (formData)=>{
       })
       .then(response=>{
           console.log('TasksAction post response' ,response.data)
-        // sessionStorage.setItem('workLifeProfileId', response.data._id)
-       //   dispatch(startGetProfile(response.data._id))
-          dispatch(startGetTasks( ))
-      })
-
-    
+           dispatch(startGetTasks( ))
+      })    
       .catch(err=>{
           console.log('tasksAction startPostTasks error', err)
       })
-  }
+   }
 }
- 
-
 
 export const startGetTasks = ()=>{
     return (dispatch)=>{
-       // console.log('startGetProfile id value', id)
-        console.log('startGetTasks just before making axios.get')
-        axios.get(`/tasks`, {
+         axios.get(`/tasks`, {
             headers : {
                 'Authorization' : localStorage.getItem('tokenWorkLife')
             }
@@ -43,11 +34,8 @@ export const startGetTasks = ()=>{
     }
 }
 
-
 export const startRemoveTasks= (id, redirect)=>{
-    console.log('entered tasksAction startRemoveTasks')
-    return (dispatch)=>{
-    
+     return (dispatch)=>{    
         axios.delete(`/tasks/${id}`, {
             headers : {
                 'Authorization' : localStorage.getItem('tokenWorkLife')
@@ -58,16 +46,12 @@ export const startRemoveTasks= (id, redirect)=>{
             window.alert('Successfully removed')
             dispatch(startGetTasks( ))
             redirect()
-        })
-       
-       
+        })      
     }
 }
 
- 
 export const startPutTasks = (id,formData)=>{
-    console.log('tasks action put entered')
-    return (dispatch)=>{
+     return (dispatch)=>{
         axios.put(`/tasks/${id}`, formData, {
             headers : {
                 'Authorization' : localStorage.getItem('tokenWorkLife')
@@ -81,18 +65,11 @@ export const startPutTasks = (id,formData)=>{
              } else {
                 alert('Successfully updated')
                 dispatch(startGetTasks())
-               // redirect()
-            }
-            })
-             
-        
+             }
+        })
     }
 }
 
-
-
-
 export const setTasks= (data)=>{
-    console.log('entered setProfile func')
-    return { type : 'SET_TASKS', payload : data}
+     return { type : 'SET_TASKS', payload : data}
 }

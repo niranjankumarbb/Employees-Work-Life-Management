@@ -21,27 +21,20 @@ class PostItem extends React.Component {
 
   findUserLike(likes) {
     const { user } = this.props;
-    console.log('this.props.post value is', this.props.post)
-         if (likes.filter(like => like.user === user._id).length > 0) {
-            return true;
-          } else {
-            return false;
-          }
-    
-   
-  }
+      if (likes.filter(like => like.user === user._id).length > 0) {
+        return true;
+      } else {
+        return false;
+      }   
+   }
 
   render() {
     const { post,profile, user, showActions } = this.props;
-    console.log('postItem component this.props.post value is',this.props.post)
-    console.log('postItem component  post.user and user._id value is',post.user , user._id)
-
-    return (
+     return (
       <div className="card card-body mb-3">
          <div className="row">
           <div className="col-md-2 zoom">
-            {/* <Link to={`/profile/user/${post.user}`}> */}
-            <Link to='#'>
+             <Link to='#'>
               <img
                 className="rounded mx-auto d-block z-depth-1 img-thumbnail"
                  src= {this.props.post.avatar}
@@ -72,15 +65,13 @@ class PostItem extends React.Component {
                   onClick={this.onUnlikeClick.bind(this, post._id)}
                   type="button"
                   className="btn btn-floating btn-light btn-sm mr-1"
-                >
-                  
+                >                  
                   <i className="text-secondary fa fa-thumbs-down" />
                   <span className="badge badge-light">{post.unlikes.length}</span>
 
                 </button>
                 <Link to={`/post/${post._id}`} className="btn btn-sm btn-floating btn-info mr-1">
-                {/* <Link to='#' className="btn btn-sm btn-floating btn-dark mr-1"> */}
-                  Comments&nbsp;&nbsp;<span className="counter counter-lg">{post.comments.length ? post.comments.length :''}</span>
+                   Comments&nbsp;&nbsp;<span className="counter counter-lg">{post.comments.length ? post.comments.length :''}</span>
                 </Link>
                 {post.user === user._id ? (
                     <button
@@ -88,8 +79,7 @@ class PostItem extends React.Component {
                     type="button"
                     title='Delete Post'
                     className="btn btn-floating btn-light btn-sm del mr-1"
-                  >
-                        
+                  >                        
                     <i className="fa fa-times" />
                   </button>
                  ) : null}

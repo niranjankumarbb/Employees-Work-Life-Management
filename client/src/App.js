@@ -1,7 +1,6 @@
 import React from 'react'
 import 'font-awesome/css/font-awesome.min.css'
 import 'bootstrap/dist/css/bootstrap.css'
-//import spinner from '/images/spinner.svg'
 import {BrowserRouter, Link, Route,Switch} from 'react-router-dom'
 import {connect } from 'react-redux'
 import Home from './components/Home'
@@ -19,17 +18,14 @@ import SPost from './components/single-post/SPost'
 import Employees from './components/Employees'
 import {startLogout} from './actions/userAction'
 import {Navbar, Nav} from 'react-bootstrap'
-// import './style.css'
-
+ 
 function App(props){
 
  const handleClick= ()=>{
    props.dispatch(startLogout())
  }
- console.log(localStorage.getItem('tokenWorkLife'))
- 
- console.log('props.user value' , props.user)
-   return (
+  
+    return (
      <div >
         <BrowserRouter>
        {(Object.keys(props.user).length>0)? (
@@ -57,11 +53,9 @@ function App(props){
            <Route path='/allprofiles' component={Employees} />
            <Route path='/post' component={post} exact={true} />
            <Route path='/post/:id' component={SPost} />
-
       
-         </div>            
-          
-         ):(
+         </div>       
+        ):(
            <div >
                <Navbar bg="info" variant="dark">
                 <Navbar.Brand href="#">Employees work-life management app</Navbar.Brand>
@@ -78,11 +72,9 @@ function App(props){
            <Route path='/register' component={Register}  />
            </Switch>
          </div>
-
-          )}  
+         )}  
       </BrowserRouter>
        </div>
-
    )
 }
 const mapStateToProps = (state)=>{
