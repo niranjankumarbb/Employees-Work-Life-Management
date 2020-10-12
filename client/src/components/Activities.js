@@ -36,7 +36,7 @@ class  Activities  extends React.Component {
                        </div>
                ):(
                 <div>
-                <h2>Enter the profile</h2>
+                <h2>Enter your profile first</h2>
                 <img src={spinner} alt="spinner" style={{width:'400px',margin:'auto',display:'block'}} />
                   </div>
                 )

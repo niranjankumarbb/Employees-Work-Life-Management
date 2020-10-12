@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import {BrowserRouter, Link, Route,Switch} from 'react-router-dom'
 import {connect } from 'react-redux'
 import Home from './components/Home'
-import Home1 from './components/Home1'
 import Login from './components/Login'
 import Register from './components/Register'
 import Activities from './components/Activities'
@@ -31,19 +30,19 @@ function App(props){
        {(Object.keys(props.user).length>0)? (
           <div>
              <Navbar bg="info" variant="dark">
-                <Navbar.Brand href="#">Employees work-life management app</Navbar.Brand>
-                <Nav className="ml-auto">
-                <Nav.Link href='/home'>Home</Nav.Link>
-                <Nav.Link href='/profile'>Profile</Nav.Link>
-                <Nav.Link href='/activities'>Activities</Nav.Link>
-                <Nav.Link href='/schedule'>Schedule</Nav.Link>
-                <Nav.Link href='/allprofiles'>Employees</Nav.Link>
-                <Nav.Link href='/post'>Post</Nav.Link>
-                <Nav.Link href='#' onClick={handleClick}>Logout</Nav.Link>
-                </Nav>
+               <Navbar.Brand href="#">Employees work-life management app</Navbar.Brand>
+               <Nav className="ml-auto">
+               <Nav.Link href='/home'>Home</Nav.Link>
+               <Nav.Link href='/profile'>Profile</Nav.Link>
+               <Nav.Link href='/activities'>Activities</Nav.Link>
+               <Nav.Link href='/schedule'>Schedule</Nav.Link>
+               <Nav.Link href='/allprofiles'>Employees</Nav.Link>
+               <Nav.Link href='/post'>Post</Nav.Link>
+               <Nav.Link href='#' onClick={handleClick}>Logout</Nav.Link>
+               </Nav>
             </Navbar>
           
-           <Route path='/home' component={Home1} exact={true}/>
+           <Route path='/home' component={Home} exact={true}/>
            <Route path='/profile' component={Profile} />
            <Route path='/activities' component={Activities}  />
            <Route path='/activities1' component={Activities1}  />

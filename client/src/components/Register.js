@@ -64,11 +64,11 @@ class Register extends React.Component{
 
                 <div className="form-group">
                 <label htmlFor='username'>username</label>
-                <input typr='text' id='username' name='username' value={this.state.username}  onChange={this.handleChange} className="form-control"/>
+                <input type='text' id='username' name='username' value={this.state.username}  onChange={this.handleChange} className="form-control"/>
                  
                 </div>
                  <label htmlFor='email'>email</label>
-                <input typr='text' id='email' name='email' value={this.state.email}  onChange={this.handleChange} className="form-control"/>
+                <input type='text' id='email' name='email' value={this.state.email}  onChange={this.handleChange} className="form-control"/>
                 <div className="form-group">                        
                  </div>
 

@@ -21,15 +21,15 @@
 .app{
    text-align:right;
 } 
-.home1 {
+.home {
     text-align: center;
     background-color:#FFFFF0; 
 }
-.home1 h1{
+.home h1{
     text-decoration: underline;
     text-align: center;
 }
-.home1 img{
+.home img{
     height: 420px;
     width: 960px;
 }

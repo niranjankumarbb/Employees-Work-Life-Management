@@ -17,7 +17,7 @@ import {startGetAllProfiles} from './profileAction'
             })
         } 
     }
-
+ 
    export const startLogout= ()=>{
        return (dispatch)=>{
         axios.delete('/users/logout', {
