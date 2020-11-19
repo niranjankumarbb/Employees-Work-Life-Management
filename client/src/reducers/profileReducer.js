@@ -1,3 +1,4 @@
+
 const profileInitialValue = []
 const profileReducer = (state=profileInitialValue, action)=>{
     switch(action.type) {
@@ -12,4 +13,4 @@ const profileReducer = (state=profileInitialValue, action)=>{
         }
     }
 }
-export default profileReducer
+ export default profileReducer
