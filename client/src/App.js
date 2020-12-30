@@ -18,7 +18,7 @@ import Employees from './components/Employees'
 import {startLogout} from './actions/userAction'
 import {Navbar, Nav} from 'react-bootstrap'
  
-function App(props){
+function App(props) {
 
  const handleClick= ()=>{
    props.dispatch(startLogout())

@@ -1,9 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
- import spinner from './spinner.svg'
+import spinner from './spinner.svg'
 import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
- 
-class Profile extends React.Component{
+ class Profile extends React.Component{
     constructor (){
         super()
         this.state= {

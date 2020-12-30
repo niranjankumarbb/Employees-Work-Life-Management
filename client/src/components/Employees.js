@@ -1,9 +1,8 @@
-import React, { Profiler } from 'react'
+import React  from 'react'
 import {connect} from 'react-redux'
 import spinner from './spinner.svg'
 import { startGetAllProfiles, startRemoveProfile} from '../actions/profileAction'
 import { startRemoveUser} from '../actions/userAction'
-
 class Employees  extends React.Component {     
 
     componentDidMount(){
