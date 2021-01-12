@@ -4,7 +4,7 @@ import { startDeleteComment } from '../../actions/postsAction';
 
 class CommentItem extends React.Component {
  
-    handleDelete(postId, commentId) {
+      handleDelete(postId, commentId) {
         const data= {
             commentId: commentId
         }

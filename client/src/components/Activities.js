@@ -15,6 +15,7 @@ class  Activities  extends React.Component {
     componentDidMount(){
       this.props.dispatch(startGetAllProfiles( ))
     }
+    
 
     handleClick= ()=>{
         this.props.history.push('/activities1')
