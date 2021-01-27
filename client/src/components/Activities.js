@@ -5,7 +5,7 @@ import {startGetAllProfiles} from '../actions/profileAction'
 import {Link} from 'react-router-dom'
 
 class  Activities  extends React.Component {
-    constructor(){
+    constructor(){ 
         super()
         this.state={
 
