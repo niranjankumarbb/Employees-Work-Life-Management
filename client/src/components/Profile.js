@@ -22,7 +22,9 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
 
     componentDidMount(){
         console.log('entered profile componentDidMount')
+        if(this.props.profile.length>0){
          this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
+        }
     }
 
     handleChange= (e)=>{
