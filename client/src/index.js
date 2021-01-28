@@ -19,9 +19,11 @@ store.subscribe(()=>{
 //handle page reloads
 if(localStorage.getItem('tokenWorkLife')){
     store.dispatch(startGetUser())
-    store.dispatch(startGetAllProfiles())
-    store.dispatch(startGetTasks())
-    store.dispatch(startGetPosts())
+     if(store.getState().profile.length>0){
+        store.dispatch(startGetAllProfiles())
+        store.dispatch(startGetTasks())
+        store.dispatch(startGetPosts())
+    }
 }
  
 const ele = (
