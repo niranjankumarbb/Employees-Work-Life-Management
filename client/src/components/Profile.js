@@ -1,11 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import spinner from './spinner.svg'
-import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
+// import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
  class Profile extends React.Component{
-    constructor (){
-        super()
-        this.state= {
+    state= {
             fullname : '',
             photo: '',
             email : '',
@@ -17,15 +15,14 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
             experience:'',
             skills:''
           
-        }
-    }
+     }
 
-    componentDidMount(){
-        console.log('entered profile componentDidMount')
-        if(this.props.profile.length>0){
-         this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
-        }
-    }
+    // componentDidMount(){
+    //     console.log('entered profile componentDidMount')
+    //     if(this.props.profile.length>0){
+    //      this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
+    //     }
+    // }
 
     handleChange= (e)=>{
         this.setState({
@@ -40,7 +37,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
             const redirect = ()=>{
               return  this.props.history.push('/')
             }
-            this.props.dispatch(startRemoveProfile(id,redirect))
+            // this.props.dispatch(startRemoveProfile(id,redirect))
        }
     }
 
@@ -62,7 +59,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
             console.log('redirect function entered')
             return  this.props.history.push('/')
          }
-        this.props.dispatch(startPostProfile(formData))
+        // this.props.dispatch(startPostProfile(formData))
     }
 
 

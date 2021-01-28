@@ -5,7 +5,7 @@ import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
 import {startGetTasks} from './actions/tasksAction'
 import {startGetUser } from './actions/userAction'
-import { startGetProfile,startGetAllProfiles} from './actions/profileAction'
+// import { startGetProfile,startGetAllProfiles} from './actions/profileAction'
 import { startGetPosts} from './actions/postsAction'
 
 
@@ -20,7 +20,7 @@ store.subscribe(()=>{
 if(localStorage.getItem('tokenWorkLife')){
     store.dispatch(startGetUser())
      if(store.getState().profile.length>0){
-        store.dispatch(startGetAllProfiles())
+        // store.dispatch(startGetAllProfiles())
         store.dispatch(startGetTasks())
         store.dispatch(startGetPosts())
     }
