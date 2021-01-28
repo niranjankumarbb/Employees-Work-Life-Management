@@ -4,7 +4,11 @@ const profileController = {}
  profileController.alllist = (req, res) => {
     Profile.find({organization : req.profile.organization})                            
         .then((profiles) =>{
+            if(profiles){
             res.json(profiles)
+            } else {
+                res.json([])
+            }
         })
         .catch((err) => {
             res.json(err)
@@ -16,8 +20,11 @@ const profileController = {}
  profileController.list = (req, res) => {
     Profile.find({user : req.user._id})                            
         .then((profile) =>{
-            res.json(profile)
-        })
+            if(profiles){
+                res.json(profiles)
+                } else {
+                    res.json([])
+                }        })
         .catch((err) => {
             res.json(err)
         })  
