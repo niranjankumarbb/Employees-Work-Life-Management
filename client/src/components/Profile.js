@@ -70,7 +70,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
         console.log('AddProfile state values ',this.state)
          return(
             <div  className='profile'>
-                {this.props.profile ?(
+                {(this.props.profile.length>0) ?(
                 <div>
                 <img src='/images/profile.jpeg' alt=''/>
                 <h1> Add Profile </h1>                 
