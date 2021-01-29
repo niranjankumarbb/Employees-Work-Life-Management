@@ -6,10 +6,8 @@ import { startRemoveUser} from '../actions/userAction'
 class Employees  extends React.Component {     
 
     componentDidMount(){
-        if(this.props.profile.length>0){
-        this.props.dispatch(startGetAllProfiles())
-        }
-    }
+         this.props.dispatch(startGetAllProfiles())
+     }
 
     handleDelete= (profileId, userId)=>{
        this.props.dispatch(startRemoveProfile(profileId))

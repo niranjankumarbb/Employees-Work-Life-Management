@@ -13,11 +13,9 @@ class Schedule  extends React.Component {
     }
 
     componentDidMount(){
-      if(this.props.profile.length>0){
-        this.props.dispatch(startGetTasks())
+         this.props.dispatch(startGetTasks())
         this.props.dispatch(startGetAllProfiles( ))
-      }
-    }
+     }
 
     handleChange=(e)=>{
       this.setState({

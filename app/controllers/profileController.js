@@ -79,7 +79,7 @@ const profileController = {}
 
      })
  }
-
+ 
 
  profileController.destroy = (req,res)=>{
      const id = req.params.id

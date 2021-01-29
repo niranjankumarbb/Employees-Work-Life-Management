@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import spinner from './spinner.svg'
-// import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
+import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
  class Profile extends React.Component{
     state= {
             fullname : '',
@@ -17,12 +17,10 @@ import spinner from './spinner.svg'
           
      }
 
-    // componentDidMount(){
-    //     console.log('entered profile componentDidMount')
-    //     if(this.props.profile.length>0){
-    //      this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
-    //     }
-    // }
+    componentDidMount(){
+        console.log('entered profile componentDidMount')
+          this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
+     }
 
     handleChange= (e)=>{
         this.setState({
@@ -59,15 +57,16 @@ import spinner from './spinner.svg'
             console.log('redirect function entered')
             return  this.props.history.push('/')
          }
-        // this.props.dispatch(startPostProfile(formData))
+        this.props.dispatch(startPostProfile(formData))
     }
 
 
     render(){
         console.log('AddProfile state values ',this.state)
+        console.log('token work-life', localStorage.getItem('tokenWorkLife'))
          return(
             <div  className='profile'>
-                {(this.props.profile.length>0) ?(
+                {(this.props.profile ) ?(
                 <div>
                 <img src='/images/profile.jpeg' alt=''/>
                 <h1> Add Profile </h1>                 
