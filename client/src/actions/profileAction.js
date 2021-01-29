@@ -33,7 +33,7 @@ export const startGetProfile = (id)=>{
         .catch(err=>{
             console.log('profileAction startGetprofile error', err)
         })
-    }
+    } 
 }
 
 export const startGetAllProfiles = ( )=>{
