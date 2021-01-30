@@ -12,9 +12,9 @@ class  Activities  extends React.Component {
         }
     }
 
-    componentDidMount(){
-       this.props.dispatch(startGetAllProfiles( ))
-     }
+    // componentDidMount(){
+    //    this.props.dispatch(startGetAllProfiles( ))
+    //  }
     
 
     handleClick= ()=>{
@@ -22,6 +22,7 @@ class  Activities  extends React.Component {
     }
 
     render(){
+        console.log('token work-life', localStorage.getItem('tokenWorkLife'))
         return (
             <div className='activities'>
                { this.props.profile.length>0? (

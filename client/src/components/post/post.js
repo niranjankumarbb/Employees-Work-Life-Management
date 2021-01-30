@@ -7,11 +7,11 @@ import PostFeed from './PostFeed';
 import {startGetPosts} from '../../actions/postsAction';
 class Post extends React.Component {
 
-  componentDidMount(){
-    if(this.props.profile.length>0){
-      this.props.dispatch(startGetPosts())
-    }
-  }
+  // componentDidMount(){
+  //   if(this.props.profile.length>0){
+  //     this.props.dispatch(startGetPosts())
+  //   }
+  // }
 
   render() { 
      // const {posts,loading}=this.props.post;

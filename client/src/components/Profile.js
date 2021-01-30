@@ -17,10 +17,10 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
           
      }
 
-    componentDidMount(){
-        console.log('entered profile componentDidMount')
-          this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
-     }
+    // componentDidMount(){
+    //     console.log('entered profile componentDidMount')
+    //       this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
+    //  }
 
     handleChange= (e)=>{
         this.setState({
@@ -35,7 +35,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
             const redirect = ()=>{
               return  this.props.history.push('/')
             }
-            // this.props.dispatch(startRemoveProfile(id,redirect))
+            this.props.dispatch(startRemoveProfile(id,redirect))
        }
     }
 
@@ -66,7 +66,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
         console.log('token work-life', localStorage.getItem('tokenWorkLife'))
          return(
              <div>
-                 <h2> profile component</h2>
+                <h2>profile component</h2> 
              </div>
         //     <div  className='profile'>
         //         {(this.props.profile ) ?(
