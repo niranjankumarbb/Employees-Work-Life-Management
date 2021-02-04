@@ -1,21 +1,21 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import spinner from './spinner.svg'
-import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
- class Profile extends React.Component{
-    state= {
-            fullname : '',
-            photo: '',
-            email : '',
-            age: '',
-            gender:'',
-            mobile : undefined,
-            qualification:'',
-            organization:'',
-            experience:'',
-            skills:''
+// import {connect} from 'react-redux'
+// import spinner from './spinner.svg'
+// import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/profileAction'
+//  class Profile extends React.Component{
+//     state= {
+//             fullname : '',
+//             photo: '',
+//             email : '',
+//             age: '',
+//             gender:'',
+//             mobile : undefined,
+//             qualification:'',
+//             organization:'',
+//             experience:'',
+//             skills:''
           
-     }
+//      }
 
     // componentDidMount(){
     //     console.log('entered profile componentDidMount')

@@ -43,7 +43,7 @@ componentDidMount(){
      </div>
     );
   }
-}
+} 
  
 const mapStateToProps=(state,props)=>({
   post:state.posts.filter(post=>post._id== props.match.params.id),
