@@ -10,8 +10,7 @@
     .catch((err) => {
         res.json(err)
     })  
-    }
-       
+    }     
 
     postsController.create = (req,res)=>{
     const body = req.body
@@ -30,7 +29,6 @@
     })
     }
 
-
     postsController.show= (req,res)=>{
     const id = req.params.id
     Post.find ({_id:id, organization : req.profile.organization})
@@ -42,7 +40,7 @@
         }
     })
     .catch((err)=>{
-                res.json(err)
+            res.json(err)
 
     })
     }
@@ -103,7 +101,6 @@
     });
     }
 
-
     postsController.removeLikes = (req,res)=>{
     Post.findById(req.params.id)
     .then(post=>{
@@ -125,7 +122,6 @@
         res.json(err)
     });     
     }
-
  
    postsController.comment= (req,res)=>{
    const id=req.params.id
@@ -147,7 +143,6 @@
         res.json(err)
     })   
     } 
-
 
    postsController.destroyComment= (req,res)=>{
    const id=req.params.id
