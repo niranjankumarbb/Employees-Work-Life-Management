@@ -13,9 +13,9 @@ class Tasks extends React.Component{
  }
 
    componentDidMount(){
-       // if(this.props.tasks.length == 0){
+    //    if(this.props.tasks.length == 0){
            this.props.dispatch(startGetTasks())
-      //}
+    //   }
    }
 
    handleChange = (e)=>{ 

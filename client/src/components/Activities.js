@@ -12,9 +12,9 @@ class  Activities  extends React.Component {
         }
     }
 
-    // componentDidMount(){
-    //    this.props.dispatch(startGetAllProfiles( ))
-    //  }
+    componentDidMount(){
+       this.props.dispatch(startGetAllProfiles( ))
+     }
     
 
     handleClick= ()=>{

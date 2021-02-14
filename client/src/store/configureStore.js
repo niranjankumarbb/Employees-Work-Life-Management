@@ -7,8 +7,6 @@ import tasksReducer from '../reducers/tasksReducer'
 import postsReducer from '../reducers/postsReducer'
 import allProfilesReducer from '../reducers/allProfilesReducer'
 
-
-
 const configureStore =()=>{
     const store =  createStore(combineReducers({
         profile : profileReducer,
