@@ -1,8 +1,7 @@
    const Post = require('../models/post')
    const postsController = {}
  
-    // get all posts
-    postsController.list = (req, res) => {
+     postsController.list = (req, res) => {
     Post.find({organization : req.profile.organization})                            
     .then((posts) =>{
         res.json(posts)
