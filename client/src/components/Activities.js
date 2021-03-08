@@ -5,13 +5,7 @@ import {startGetAllProfiles} from '../actions/profileAction'
 import {Link} from 'react-router-dom'
 
 class  Activities  extends React.Component {
-    constructor(){ 
-        super()
-        this.state={
-
-        }
-    }
-
+    
     componentDidMount(){
        this.props.dispatch(startGetAllProfiles( ))
      }
