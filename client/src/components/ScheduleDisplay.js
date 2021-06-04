@@ -88,8 +88,8 @@ class ScheduleDisplay  extends React.Component {
                    <br/><br/>
                    <h5>Personal life activities completed - {this.calculatePercentagePersonal()}%</h5>
                    <div className="progress">
-                    <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: `${this.calculatePercentagePersonal()}%`}}></div>
-                    </div>
+                   <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: `${this.calculatePercentagePersonal()}%`}}></div>
+                   </div>
                 </React.Fragment>
 
                 <br/><br/><br/>  
