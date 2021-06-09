@@ -8,8 +8,7 @@ class  Activities  extends React.Component {
     
     componentDidMount(){
        this.props.dispatch(startGetAllProfiles( ))
-     }
-    
+     }    
 
     handleClick= ()=>{
         this.props.history.push('/activities1')
@@ -29,7 +28,7 @@ class  Activities  extends React.Component {
                          <br/><br/><br/><br/><br/>
                          <h3>Tracking increases the chance of maintaining balance by 3x</h3>
                          <button onClick={this.handleClick} class="btn btn-info">Get started</button>
-                       </div>
+                     </div>
                ):(
                 <div>
                 <h2>Enter your profile first</h2>
