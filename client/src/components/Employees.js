@@ -16,8 +16,7 @@ class Employees  extends React.Component {
      }
 
     render(){
-       // console.log(this.state)
-        return (
+         return (
             <div className='employees'>
             <div className="row">
             <div className="col-md-10 offset-md-1"> 
@@ -83,8 +82,7 @@ class Employees  extends React.Component {
                              </React.Fragment>
                             )
                          })
-                        }
-                        
+                        }                        
                      </tbody>
                  </table>             
               <br/><br/><br/>                  
