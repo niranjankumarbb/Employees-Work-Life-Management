@@ -10,7 +10,7 @@ function Home(props){
            <br/>          
            <img src='/images/Work-Life-Balance.jpg' class="img-thumbnail"   alt="Responsive image"/>
          </div>
-    )
-}
+      )
+ }
 
 export default Home
