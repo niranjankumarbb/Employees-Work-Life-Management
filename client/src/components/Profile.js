@@ -13,8 +13,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
             qualification:'',
             organization:'',
             experience:'',
-            skills:''
-          
+            skills:''          
      }
 
     componentDidMount(){
