@@ -62,7 +62,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
 
     render(){
         console.log('AddProfile state values ',this.state)
-        console.log('token work-life', localStorage.getItem('tokenWorkLife'))
+        // console.log('token work-life', localStorage.getItem('tokenWorkLife'))
          return(
              <div>
                 <h2>profile component</h2> 
