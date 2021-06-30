@@ -54,8 +54,8 @@ class Schedule  extends React.Component {
             ):(
                 <div>
                   <h2> Enter your profile first and then activities</h2>  
-                <img src={spinner} alt="spinner" style={{width:'400px',margin:'auto',display:'block'}} />
-                  </div> 
+                  <img src={spinner} alt="spinner" style={{width:'400px',margin:'auto',display:'block'}} />
+                </div> 
                 )             
             }
           </div>
