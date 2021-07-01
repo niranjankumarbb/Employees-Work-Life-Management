@@ -70,4 +70,5 @@ const mapStateToProps= (state)=>{
         profile: state.allProfiles.filter(profile=>profile.email==localStorage.getItem('profileEmail'))
     }
 }
+
 export default connect(mapStateToProps)(Schedule)
