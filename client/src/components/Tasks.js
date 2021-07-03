@@ -4,13 +4,13 @@ import {startPostTasks, startGetTasks} from '../actions/tasksAction'
  
 class Tasks extends React.Component{
    state = {
-   activities: localStorage.getItem('activities'),
+       activities: localStorage.getItem('activities'),
        title : '',
- description : '',
-      date   : undefined,
-  target     : '',
- completed   : false,
- }
+       description : '',
+       date   : undefined,
+       target     : '',
+       completed   : false,
+    }
 
    componentDidMount(){
     //    if(this.props.tasks.length == 0){
