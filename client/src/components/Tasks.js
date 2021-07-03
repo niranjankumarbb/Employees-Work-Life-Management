@@ -46,7 +46,7 @@ class Tasks extends React.Component{
    }
 
    render(){
-       console.log('Tasks component state',this.state)
+    //    console.log('Tasks component state',this.state)
        return (
            <div className='tasks' >
                         <div className="row">
