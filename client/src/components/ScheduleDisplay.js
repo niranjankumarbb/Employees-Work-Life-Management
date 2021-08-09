@@ -56,7 +56,7 @@ class ScheduleDisplay  extends React.Component {
                 <div>
                   { this.props.tasksPersonalLife.length>0 && this.props.tasksWork.length>0  ? (
                 <div>
-               <React.Fragment>
+                 <React.Fragment>
                   <h3>Personal life activities</h3>
                       <br/>
                        <div className="row">
@@ -78,14 +78,14 @@ class ScheduleDisplay  extends React.Component {
                             </div>
                              {(i+1)%3==0 && (
                                  <div>
-                                 <br/><br/><br/>
+                                  <br/><br/><br/>
                                  </div>)}
                              </div>   
                             )
                          })
                         }
                       </div>                 
-                   <br/><br/>
+                    <br/><br/>
                    <h5>Personal life activities completed - {this.calculatePercentagePersonal()}%</h5>
                    <div className="progress">
                    <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{width: `${this.calculatePercentagePersonal()}%`}}></div>
