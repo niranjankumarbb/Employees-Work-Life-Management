@@ -9,9 +9,9 @@ class  Tasks extends React.Component {
     }
 
     handleClick1=()=>{
-       this.setState({ activities: 'personal_life'}, ()=>{
-        localStorage.setItem('activities', this.state.activities)
-        this.props.history.push({
+        this.setState({ activities: 'personal_life'}, ()=>{
+          localStorage.setItem('activities', this.state.activities)
+          this.props.history.push({
             pathname:'/tasks',
             state: {detail: 'personal_life'}
         })
