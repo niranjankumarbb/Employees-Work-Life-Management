@@ -31,8 +31,7 @@ class Login extends React.Component{
     }
 
     render(){
-        // console.log(this.state)
-        return(
+         return(
             <div className='login'>
                   <div className="row">
                   <div className="col-md-4 offset-md-4"> 
