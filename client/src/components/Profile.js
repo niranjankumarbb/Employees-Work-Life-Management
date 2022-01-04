@@ -17,7 +17,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
      }
 
     componentDidMount(){
-        console.log('entered profile componentDidMount')
+        // console.log('entered profile componentDidMount')
           this.props.dispatch(startGetProfile(localStorage.getItem('workLifeProfileId')))
      }
 
@@ -53,7 +53,7 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
             skills:this.state.skills          
          }
          const redirect = ()=>{
-            console.log('redirect function entered')
+            // console.log('redirect function entered')
             return  this.props.history.push('/')
          }
         this.props.dispatch(startPostProfile(formData))
@@ -61,8 +61,8 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
 
 
     render(){
-        console.log('AddProfile state values ',this.state)
-        console.log('token work-life', localStorage.getItem('tokenWorkLife'))
+        // console.log('AddProfile state values ',this.state)
+        // console.log('token work-life', localStorage.getItem('tokenWorkLife'))
          return(
              <div>
                 <h2>profile component</h2> 
