@@ -148,14 +148,11 @@ import {startPostProfile, startRemoveProfile, startGetProfile} from '../actions/
 
                     <div className="form-group">
                     <input type='submit' value='Submit'   className="form-control"/>
-
-                    </div>              
-
-                </form>
-                </div>
-
-                </div>
-                </div>
+                    </div>  
+                  </form>
+                </div> 
+               </div>
+              </div>
                 ):(
                   <img src={spinner} alt="spinner" style={{width:'100px',margin:'auto',display:'block'}} />
                 )}               
