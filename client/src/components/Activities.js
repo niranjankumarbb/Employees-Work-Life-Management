@@ -15,8 +15,7 @@ class  Activities  extends React.Component {
     }
 
     render(){
-        // console.log('token work-life', localStorage.getItem('tokenWorkLife'))
-        return (
+         return (
             <div className='activities'>
                { this.props.profile.length>0? (
                      <div>
