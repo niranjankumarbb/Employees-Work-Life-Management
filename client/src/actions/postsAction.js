@@ -14,8 +14,7 @@ export const startPostPost = (formData)=>{
           console.log('postsAction startPostPosts error', err)
       })
   }
-}
- 
+} 
 
 export const startGetPosts = ()=>{
     return (dispatch)=>{
@@ -25,7 +24,7 @@ export const startGetPosts = ()=>{
             }
         })
         .then(response=>{
-            console.log('postsAction get response', response.data)
+            // console.log('postsAction get response', response.data)
             dispatch(setPosts(response.data))
         })
         .catch(err=>{
