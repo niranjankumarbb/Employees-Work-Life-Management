@@ -29,7 +29,7 @@ import {startPostPost} from '../../actions/postsAction';
       }
 
     render() {
-     console.log(this.state)
+    //  console.log(this.state)
         return (
           <div className="post-form mb-3">
             <div className="card card-info">
