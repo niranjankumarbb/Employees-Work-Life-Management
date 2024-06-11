@@ -33,7 +33,7 @@
     Post.find ({_id:id, organization : req.profile.organization})
     .then((post)=>{
         if(post){
-        res.json(post)
+            res.json(post)
         }else {
             res.json({})
         }
@@ -66,7 +66,7 @@
     Post.findById(id)
     .then(post=>{
         if(post.likes.filter(like => like.user.toString() === req.user.id).length >0){
-            return res.status(400).json({alreadyliked:"User already liked this post"});
+            return res.status(400).json({alreadyliked:"The user already liked this post"});
         }
     
         // Add user id to likes array
