@@ -17,8 +17,7 @@ const PostSchema=new Schema({
     avatar:{
         type: String
     },
-    // array of objects to get id for each like
-    likes:[
+     likes:[
         {
             user:{
                 type: Schema.Types.ObjectId,
